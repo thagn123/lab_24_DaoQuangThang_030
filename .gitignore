@@ -1,0 +1,32 @@
+# Environment variables - DO NOT commit secrets
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+
+
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/

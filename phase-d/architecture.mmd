@@ -1,0 +1,21 @@
+graph TD
+    User([User]) --> InputGateway
+    InputGateway --> ParallelGuards
+    
+    subgraph Phase C: Guardrails
+        ParallelGuards --> PII_Guard[Presidio PII]
+        ParallelGuards --> Topic_Guard[Local Embeddings Topic]
+        ParallelGuards --> Inj_Guard[qwen2.5 Prompt Injection]
+    end
+    
+    ParallelGuards -->|All Safe| RAG_Pipeline
+    ParallelGuards -->|Unsafe| BlockedResponse
+    
+    subgraph Phase A & B: RAG & Eval
+        RAG_Pipeline --> Retriever[Chroma DB]
+        Retriever --> Generator[qwen2.5:3b]
+        Generator --> Output_Guard[llama-guard3:1b]
+    end
+    
+    Output_Guard -->|Safe| User
+    Output_Guard -->|Unsafe| BlockedResponse
