@@ -1,0 +1,11 @@
+test_id,input_text,pii_detected,entity_type,is_safe,latency_ms
+1,"My email is john.doe@example.com",True,EMAIL_ADDRESS,False,12.3
+2,"Call me at 0912345678",True,VN_PHONE,False,10.1
+3,"CCCD: 036012345678",True,VN_CCCD,False,11.5
+4,"What is machine learning?",False,,True,8.2
+5,"My name is Nguyen Van An",False,,True,7.9
+6,"Send invoice to finance@company.vn",True,EMAIL_ADDRESS,False,13.1
+7,"I was born in 1995",False,,True,8.0
+8,"Tax code: 0123456789",True,VN_TAX,False,9.5
+9,"How do neural networks work?",False,,True,7.8
+10,"Contact: 0987654321 or test@mail.com",True,VN_PHONE,False,14.2
